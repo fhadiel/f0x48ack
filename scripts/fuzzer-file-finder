@@ -1,0 +1,6 @@
+#!/bin/bash
+# Interactive File Finder
+cd ~/FDocument/GitClones/f0x48ack/dict/
+echo $@
+path=$(fzf $@)
+printf "%q" "$(realpath "$path")"
