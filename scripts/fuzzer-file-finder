@@ -1,6 +1,8 @@
 #!/bin/bash
 # Interactive File Finder
-cd ~/FDocument/GitClones/f0x48ack/dict/
-echo $@
-path=$(fzf $@)
-printf "%q" "$(realpath "$path")"
+
+cd "$(dirname $(realpath $0))/../dict"
+selected=$(fzf $@)
+if [ ! -z $selected ] ; then
+  printf "%q" "$(realpath "$selected")"
+fi
